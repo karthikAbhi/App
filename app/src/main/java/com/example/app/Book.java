@@ -2,6 +2,7 @@ package com.example.app;
 
 public class Book {
 
+    private double Price;
     private String Title;
     private String Category;
     private String Description;
@@ -10,11 +11,12 @@ public class Book {
     public Book() {
     }
 
-    public Book(String title, String category, String description, int thumbnail) {
+    public Book(String title, String category, String description, int thumbnail, double price) {
         Title = title;
         Category = category;
         Description = description;
         Thumbnail = thumbnail;
+        Price = price;
     }
 
     public String getTitle() {
@@ -47,5 +49,13 @@ public class Book {
 
     public void setThumbnail(int thumbnail) {
         Thumbnail = thumbnail;
+    }
+
+    public double getPrice() {
+        return Price;
+    }
+
+    public void setPrice(double price) {
+        Price = price;
     }
 }

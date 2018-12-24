@@ -30,7 +30,6 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         View view;
         LayoutInflater mInflater = LayoutInflater.from(mContext);
         view = mInflater.inflate(R.layout.cardveiw_item_book, parent, false);
-
         return new MyViewHolder(view);
     }
 
@@ -47,6 +46,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                 intent.putExtra("BookTitle", mData.get(position).getTitle());
                 intent.putExtra("Description", mData.get(position).getDescription());
                 intent.putExtra("Thumbnail", mData.get(position).getThumbnail());
+                intent.putExtra("Price", mData.get(position).getPrice());
                 mContext.startActivity(intent);
             }
         });
