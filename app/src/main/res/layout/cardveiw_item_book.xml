@@ -17,7 +17,7 @@
         <ImageView
             android:id="@+id/book_img_id"
             android:layout_width="match_parent"
-            android:layout_height="150dp"
+            android:layout_height="140dp"
             android:scaleType="centerCrop"
             android:background="@color/cardview_dark_background" />
 

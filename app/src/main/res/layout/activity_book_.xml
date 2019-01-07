@@ -20,7 +20,7 @@
 
             <ImageView
                 android:id="@+id/bookthumbnail"
-                android:layout_width="match_parent"
+                android:layout_width="150dp"
                 android:layout_height="150dp"
                 android:background="#202020"
                 android:scaleType="centerCrop" />

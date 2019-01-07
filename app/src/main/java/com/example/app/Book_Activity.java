@@ -6,6 +6,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.SharedPreferences;
 import android.hardware.usb.UsbConstants;
 import android.hardware.usb.UsbDevice;
 import android.hardware.usb.UsbDeviceConnection;
@@ -26,6 +27,7 @@ import android.widget.Toast;
 
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.Map;
 
 import static android.hardware.usb.UsbManager.ACTION_USB_DEVICE_ATTACHED;
 import static android.hardware.usb.UsbManager.ACTION_USB_DEVICE_DETACHED;
@@ -96,7 +98,10 @@ public class Book_Activity extends AppCompatActivity implements AdapterView.OnIt
         printButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                SharedPreferences prefs = getSharedPreferences(MainActivity.CHAT_PREFS, 0);
+                //HashMap hs = new HashMap<>().getAll();
+                Log.d("Memory", "Name = " + prefs.getString(MainActivity.NAME, null));
+                Log.d("Memory", "Age = " + prefs.getString(MainActivity.AGE, null));
                 transfer(mConnection, mEndpoint);
             }
         });
@@ -332,9 +337,9 @@ public class Book_Activity extends AppCompatActivity implements AdapterView.OnIt
                     mConnection.bulkTransfer(mEndpoint, cmdnormalfont, cmdnormalfont.length, 0);
                     mConnection.bulkTransfer(mEndpoint, mAddress.getBytes(), mAddress.getBytes().length, 0);
                     mConnection.bulkTransfer(mEndpoint, data.getBytes(), data.getBytes().length, 0);
-                    mConnection.bulkTransfer(mEndpoint, next_line, next_line.length, 0);
-                    mConnection.bulkTransfer(mEndpoint, barcode_begin_cmd, barcode_begin_cmd.length, 0);
-                    mConnection.bulkTransfer(mEndpoint, barcode_begin, barcode_begin.length, 0);
+                    //mConnection.bulkTransfer(mEndpoint, next_line, next_line.length, 0);
+                    //mConnection.bulkTransfer(mEndpoint, barcode_begin_cmd, barcode_begin_cmd.length, 0);
+                    //mConnection.bulkTransfer(mEndpoint, barcode_begin, barcode_begin.length, 0);
                     mConnection.bulkTransfer(mEndpoint, mTitle.getBytes(), mTitle.getBytes().length, 0);
                     //mConnection.bulkTransfer(mEndpoint,barcode_end,barcode_end.length,0);
                     mConnection.bulkTransfer(mEndpoint, mQuantity.getBytes(), mQuantity.getBytes().length, 0);
@@ -344,7 +349,7 @@ public class Book_Activity extends AppCompatActivity implements AdapterView.OnIt
             });
             thread.run();
 
-            finish();
+            //finish();
         }
     }
 
@@ -358,6 +363,7 @@ public class Book_Activity extends AppCompatActivity implements AdapterView.OnIt
     public void onNothingSelected(AdapterView<?> parent) {
         Toast.makeText(this, "NO Selection Made", Toast.LENGTH_LONG).show();
     }
+
 }
 
 
