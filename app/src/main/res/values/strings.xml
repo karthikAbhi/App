@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">App</string>
+    <string name="ChatPrefs">CHAT_PREFS</string>
+    <string name="add_button">+</string>
+    <string name="sub_button">-</string>
+    <string-array name="quantity">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+</resources>
